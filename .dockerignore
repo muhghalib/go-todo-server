@@ -1,0 +1,9 @@
+# Docker
+docker-compose.yaml
+Dockerfile
+.dockerignore
+
+# Etc
+tmp
+.air.toml
+.env.example
