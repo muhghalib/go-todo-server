@@ -20,9 +20,11 @@ FROM builder as runner
 
 WORKDIR /app
 
+ENV APP_ENV production
+
 COPY --from=builder /app /app
 
-EXPOSE 3000
+EXPOSE ${SERVER_PORT}
 
 CMD ["/app/main"]
 
