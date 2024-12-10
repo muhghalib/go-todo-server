@@ -2,6 +2,7 @@ package usecase
 
 import (
 	"errors"
+	"fmt"
 	"main/internal/domains"
 	"main/internal/dto"
 	"main/internal/entities"
@@ -62,11 +63,13 @@ func (t *TaskUseCase) Update(userId int64, taskId int64, updateTaskDto dto.Updat
 		return err
 	}
 
+	fmt.Println(updateTaskDto.Description)
+
 	task.Title = updateTaskDto.Title
 	task.Description = updateTaskDto.Description
 	task.Status = updateTaskDto.Status
 
-	if err := t.repo.Save(&task).Error; err != nil {
+	if err := t.repo.Updates(&task).Error; err != nil {
 		return utils.CreateError(fiber.StatusInternalServerError, err.Error())
 	}
 

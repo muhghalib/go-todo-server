@@ -8,7 +8,7 @@ type CreateTaskDto struct {
 }
 
 type UpdateTaskDto struct {
-	Title       string              `json:"title"`
-	Description string              `json:"description"`
-	Status      entities.TaskStatus `json:"status"`
+	Title       string              `json:"title,omitempty"`
+	Description string              `json:"description,omitempty"`
+	Status      entities.TaskStatus `json:"status,omitempty"`
 }
